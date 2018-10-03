@@ -3,293 +3,31 @@
 
   <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <style>
-        canvas {
-            border:1px solid #d3d3d3;
-            background-color: white;
-            padding-left: 67%;
-        }
-  </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>MyEpsi </title>
 
-    <title>MyEpsi </title>
+        <!--************* Bootstrap core CSS *************-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <!--************* Plugin CSS *************-->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/creative.min.css" rel="stylesheet">
-
+        <!--************* Custom styles *************-->
+        <link href="css/creative.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
-   <script>
-         let state = {
-          grid: _.map(_.range(0, 9), (index) => {
-          return { index, figure: -1 }
-        }),
-        myTurn: false
-      }
 
-      const appState = _.cloneDeep(state)
-
-      const block = Vue.component('block', {
-        name: 'block',
-
-        template: '#block',
-
-        props: {
-          figure: {
-            type: Number,
-            default: -1
-          }
-        },
-
-        computed: {
-          fig () {
-            return this.figure === 0 ? 'O' : 'X'
-          }
-        },
-
-        data () {
-          return {
-            selected: false
-          }
-        },
-
-        methods: {
-          enter (el, done) {
-            TweenMax.from(el, 1, {
-              autoAlpha: 0,
-              scale: 0,
-              ease: Elastic.easeOut.config(1.25, 0.5),
-              onComplete: done
-            })
-          }
-        }
-      })
-
-      const win = Vue.component('win', {
-        name: 'win',
-        template: '#win',
-        props: {
-          clickHandler: {
-            type: Function,
-            default: null
-          }
-        }
-      })
-
-      const app = new Vue({
-        name: 'app',
-
-        el: '#app',
-
-        data() {
-          return state
-        },
-
-        components: {
-          block
-        },
-
-        computed: {
-           winner () {
-             const wins = ['012', '036', '345', '147', '258', '678','048', '246']
-             const grid = this.grid
-             const player = this.myTurn ? 0 : 1
-             const moves = _.reduce(this.grid, (result, value, index) => {
-               if (value.figure === player) {
-                 result.push(index)
-               }
-
-               return result
-             }, [])
-
-             return !!_.find(wins, win => {
-                const combination = _.map(win.split(''), n => parseInt(n));
-                console.log('combination', combination, moves)
-
-                return _.difference(combination, moves).length === 0;
-             })
-           }
-        },
-
-        methods: {
-          select (index) {
-            const {figure} = this.grid[index]
-
-            if (figure > -1) {
-              return;
-            }
-
-            this.grid[index].figure = this.myTurn ? 1 : 0
-            this.myTurn = !this.myTurn
-          },
-
-          restart () {
-            this.grid = appState.grid
-            this.myTurn = appState.myTurn
-          },
-
-          enter (el, done) {
-            TweenMax.from(el, 1, {
-              autoAlpha: 0,
-              scale: 0,
-              ease: Elastic.easeOut.config(1.25, 0.5)
-            })
-          },
-
-          enterWin (el) {
-            TweenMax.from(el, 1, {
-              autoAlpha: 0,
-              scale: 0,
-              ease: Elastic.easeOut.config(1.25, 0.5)
-            })
-          }
-        }
-      })
-   // ********************* Game *******************
-//    var myGamePiece;
-//    var myObstacles = [];
-//    var myScore;
-//
-//    function startGame() {
-//        myGamePiece = new component(30, 30, "red", 10, 120);
-//        myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-//        myGameArea.start();
-//    }
-//
-//    var myGameArea = {
-//        canvas : document.createElement("canvas"),
-//        start : function() {
-//            this.canvas.width = 480;
-//            this.canvas.height = 270;
-//            this.context = this.canvas.getContext("2d");
-//            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-//            this.frameNo = 0;
-//            this.interval = setInterval(updateGameArea, 20);
-//            },
-//        clear : function() {
-//            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-//        },
-//        stop : function() {
-//            clearInterval(this.interval);
-//        }
-//    }
-//
-//    function component(width, height, color, x, y, type) {
-//        this.type = type;
-//        this.width = width;
-//        this.height = height;
-//        this.speedX = 0;
-//        this.speedY = 0;
-//        this.x = x;
-//        this.y = y;
-//        this.update = function() {
-//            ctx = myGameArea.context;
-//            if (this.type == "text") {
-//                ctx.font = this.width + " " + this.height;
-//                ctx.fillStyle = color;
-//                ctx.fillText(this.text, this.x, this.y);
-//            } else {
-//                ctx.fillStyle = color;
-//                ctx.fillRect(this.x, this.y, this.width, this.height);
-//            }
-//        }
-//        this.newPos = function() {
-//            this.x += this.speedX;
-//            this.y += this.speedY;
-//        }
-//        this.crashWith = function(otherobj) {
-//            var myleft = this.x;
-//            var myright = this.x + (this.width);
-//            var mytop = this.y;
-//            var mybottom = this.y + (this.height);
-//            var otherleft = otherobj.x;
-//            var otherright = otherobj.x + (otherobj.width);
-//            var othertop = otherobj.y;
-//            var otherbottom = otherobj.y + (otherobj.height);
-//            var crash = true;
-//            if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-//                crash = false;
-//            }
-//            return crash;
-//        }
-//    }
-//
-//    function updateGameArea() {
-//        var x, height, gap, minHeight, maxHeight, minGap, maxGap;
-//        for (i = 0; i < myObstacles.length; i += 1) {
-//            if (myGamePiece.crashWith(myObstacles[i])) {
-//                myGameArea.stop();
-//                return;
-//            }
-//        }
-//        myGameArea.clear();
-//        myGameArea.frameNo += 1;
-//        if (myGameArea.frameNo == 1 || everyinterval(150)) {
-//            x = myGameArea.canvas.width;
-//            minHeight = 20;
-//            maxHeight = 200;
-//            height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-//            minGap = 50;
-//            maxGap = 200;
-//            gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-//            myObstacles.push(new component(10, height, "green", x, 0));
-//            myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
-//        }
-//        for (i = 0; i < myObstacles.length; i += 1) {
-//            myObstacles[i].speedX = -1;
-//            myObstacles[i].newPos();
-//            myObstacles[i].update();
-//        }
-//        myScore.text="SCORE: " + myGameArea.frameNo;
-//        myScore.update();
-//        myGamePiece.newPos();
-//        myGamePiece.update();
-//    }
-//
-// // ************************* les fonction des buttons ( manette) pour jouer ***************************
-//    function everyinterval(n) {
-//        if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-//        return false;
-//    }
-//
-//    function moveup() {
-//        myGamePiece.speedY = -1;
-//    }
-//
-//    function movedown() {
-//        myGamePiece.speedY = 1;
-//    }
-//
-//    function moveleft() {
-//        myGamePiece.speedX = -1;
-//    }
-//
-//    function moveright() {
-//        myGamePiece.speedX = 1;
-//    }
-//
-//    function clearmove() {
-//        myGamePiece.speedX = 0;
-//        myGamePiece.speedY = 0;
-//    }
-   </script>
-  <!-- <body id="page-top" onload="startGame()"> -->
   <body id="page-top">
 
-    <!-- Navigation -->
+    <!-- *************************************** Navigation *************************************** -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -301,16 +39,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">L'epsi en 360°</a>
+              <a class="nav-link js-scroll-trigger" href="#about">Découvrir le campus</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">je suis un condidat</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">je suis une entreprise</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">L'epsi en 360°</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Découvrir le campus</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Vue d'extérieur</a>
             </li>
           </ul>
         </div>
@@ -348,7 +86,7 @@
       </div>
     </section>
 
-        <!-- ************************ section : #services (Trouver ma formation) ***************************** -->
+        <!-- ************************************* section : #services (Trouver ma formation) ****************************************** -->
     <section id="services">
       <div class="container">
         <div class="row">
@@ -364,19 +102,21 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
               <h3 class="mb-3">Quel est votre niveau d'étude ?</h3>
-                  <select class="form-control">
-                    <option>Bac</option>
-                    <option>BTS</option>
-                    <option>Bac + 3</option>
-                    <option>Bac + 4</option>
+                  <select id="niveauEtude" class="form-control">
+                    <option ></option>
+                    <option value="Bac">Bac</option>
+                    <option value="BTS">BTS</option>
+                    <option value="Bac + 3">Bac + 3</option>
+                    <option value="Bac + 4">Bac + 4</option>
                   </select>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 text-center">
+          <div id="typeContract" class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
               <h3 class="mb-3">Quel type du contrat?</h3>
               <select class="form-control">
+                <option ></option>
                 <option>Initial</option>
                 <option>Alternance</option>
               </select>
@@ -386,7 +126,8 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
               <h3 class="mb-3">Quel secteur aimeriez vous ?</h3>
-              <select class="form-control">
+              <select id="secteur" class="form-control">
+                <option ></option>
                 <option>Développement</option>
                 <option>Réseaux</option>
               </select>
@@ -396,7 +137,8 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
               <h3 class="mb-3">choisissez une fourchette de prix</h3>
-              <select id="prix" class="form-control">
+              <select id="salaire" class="form-control">
+                <option ></option>
                 <option>(20K€-25K€)</option>
                 <option>(30K€-35K€)</option>
                 <option>(35K€-40K€)</option>
@@ -410,25 +152,25 @@
         </br>
         </div>
 
-        <!-- ************************ Button lancement de la requette + modal ***************************** -->
+        <!-- ************************************* Button lancement de la requette + modal ****************************************** -->
 
-                 <button type="button" class="btn btn-primary btn-search btn-xl js-scroll-trigger" data-toggle="modal" data-target="#exampleModalCenter">
+                 <button id="Button" type="button" class="btn btn-primary btn-search btn-xl js-scroll-trigger" data-toggle="modal" data-target="#exampleModalLongTitle">
                     Lancer la recherche
                   </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalLongTitle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">2, Resultat trouver</h5>
+                <h5 class="modal-title" id="resultat">2, Resultat trouver</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <p data-height="265" data-theme-id="0" data-slug-hash="XjLGKv" data-default-tab="result" data-user="timrijkse" data-pen-title="Tic Tac Toe" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/timrijkse/pen/XjLGKv/">Tic Tac Toe</a> by Tim Rijkse (<a href="https://codepen.io/timrijkse">@timrijkse</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              <div id="modal1" class="modal-body">
+                <!-- <p data-height="430" data-theme-id="light" data-slug-hash="XjLGKv" data-default-tab="result" data-user="timrijkse" data-pen-title="Tic Tac Toe" data-preview="true" class="codepen"></p>
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
                 <a target="_blank" href="http://www.epsi.fr/programmes/bachelor-informatique/"> <p> 1- BACHELOR INFORMATIQUE – BAC +3</p> </a>
                 <a target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/"> <p>2- BTS SIO – SERVICES INFORMATIQUES AUX ORGANISATIONS</p> </a>
               </div>
@@ -439,6 +181,30 @@
             </div>
           </div>
         </div>
+
+
+      <!-- ***************************************************************** game modal *********************************************************** -->
+        <div class="modal fade" id="ModalJeu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">il faut gagner pour voir le site</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="modal1" class="modal-body">
+              <p data-height="600" data-theme-id="dark" data-slug-hash="yoVZYN" data-default-tab="result" data-user="christhebarbarian" data-pen-title="Tic Tac Toe" class="codepen"></p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              </div>
+              <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+                <button id="GameModalButton" type="button" class="btn btn-primary" data-dismiss="modal">Decouvrire le site !</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       </div>
     </section>
@@ -571,5 +337,6 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    <script src='javascripts/script.js'></script>
   </body>
 </html>
