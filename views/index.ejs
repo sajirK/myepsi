@@ -87,7 +87,7 @@
       </div>
     </section>
 
-        <!-- ************************************* section : #services (Trouver ma formation) ****************************************** -->
+        <!-- ************************************* start section : #formulaire (Trouver ma formation) ****************************************** -->
     <section id="services">
       <div class="container">
         <div class="row">
@@ -107,7 +107,6 @@
                     <option ></option>
                     <option value="Bac">Bac</option>
                     <option value="BTS">BTS</option>
-                    <option value="Bac + 3">Bac + 3</option>
                     <option value="Bac + 4">Bac + 4</option>
                   </select>
             </div>
@@ -116,7 +115,7 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
               <h3 class="mb-3">Quel type du contrat?</h3>
-              <select class="form-control">
+              <select id="typeContract" class="form-control">
                 <option ></option>
                 <option>Initial</option>
                 <option>Alternance</option>
@@ -143,7 +142,6 @@
                 <option>(20K€-25K€)</option>
                 <option>(30K€-35K€)</option>
                 <option>(35K€-40K€)</option>
-                <option>(40K€-45K€)</option>
               </select>
             </div>
           </div>
@@ -152,38 +150,128 @@
         </br>
         </br>
         </div>
+        <!-- ************************************* END section : #formulaire (Trouver ma formation) ****************************************** -->
+
 
         <!-- ************************************* Button lancement de la requette + modal ****************************************** -->
 
-                 <button id="Button" type="button" class="btn btn-primary btn-search btn-xl js-scroll-trigger" data-toggle="modal" data-target="#exampleModalLongTitle">
+                 <button id="buttonR" type="button" class="btn btn-primary btn-search btn-xl js-scroll-trigger" >
                     Lancer la recherche
                   </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalLongTitle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <!--**************************************************************** start Modal resultat 1 **************************************************************** -->
+        <div class="modal fade" id="resultat1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="resultat">2, Resultat trouver</h5>
+                <h5 class="modal-title" id="resultat">cela peut vous intéresser</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div id="modal1" class="modal-body">
-                <!-- <p data-height="430" data-theme-id="light" data-slug-hash="XjLGKv" data-default-tab="result" data-user="timrijkse" data-pen-title="Tic Tac Toe" data-preview="true" class="codepen"></p>
-                <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
-                <a target="_blank" href="http://www.epsi.fr/programmes/bachelor-informatique/"> <p> 1- BACHELOR INFORMATIQUE – BAC +3</p> </a>
-                <a target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/"> <p>2- BTS SIO – SERVICES INFORMATIQUES AUX ORGANISATIONS</p> </a>
+                <a target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/"> <p>BTS SIO – SERVICES INFORMATIQUES AUX ORGANISATIONS</p> </a>
+                <p>Le BTS Services Informatiques aux Organisations – BTS SIO est proposé aux titulaires d’un baccalauréat technologique STG et STI, d’un baccalauréat général (S, ES) ou d’un baccalauréat professionnel (SEN).
+                Le BTS Services Informatiques aux Organisations est un diplôme d’État de niveau Bac+2 qui peut se préparer à l’EPSI tout en suivant la formation bachelor Informatique directement après le Bac. Le BTS SIO permet de développer des connaissances théoriques et techniques dans le domaine des Services Informatiques aux organisations.</p>
               </div>
               <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Merci !</button>
+                <button type="button" class="btn btn-light btn-xl js-scroll-trigger" data-dismiss="modal">Close</button>
+                <a class="btn btn-light btn-xl js-scroll-trigger" target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/">Postuler !</a>
+
               </div>
             </div>
           </div>
         </div>
+        <!--**************************************************************** End Modal resultat 1 **************************************************************** -->
 
-      <!-- ***************************************************************** game modal *********************************************************** -->
+        <!--**************************************************************** start Modal resultat 2 **************************************************************** -->
+        <div class="modal fade" id="resultat2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="resultat">cela peut vous intéresser</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="modal1" class="modal-body">
+                <a target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/"> <p>BTS SIO – SERVICES INFORMATIQUES AUX ORGANISATIONS</p> </a>
+                <p>Le BTS Services Informatiques aux Organisations – BTS SIO est proposé aux titulaires d’un baccalauréat technologique STG et STI, d’un baccalauréat général (S, ES) ou d’un baccalauréat professionnel (SEN).
+                Le BTS Services Informatiques aux Organisations est un diplôme d’État de niveau Bac+2 qui peut se préparer à l’EPSI tout en suivant la formation bachelor Informatique directement après le Bac. Le BTS SIO permet de développer des connaissances théoriques et techniques dans le domaine des Services Informatiques aux organisations.</p>
+
+              </div>
+              <div id="modal1" class="modal-body">
+                <a target="_blank" href="http://www.epsi.fr/programmes/bachelor-informatique/"> <p>BACHELOR INFORMATIQUE – BAC +3</p> </a>
+                <p>L’EPSI propose pour les trois premières années un Bachelor informatique  préparant à un titre de niveau II (Bac + 3 ) enregistré au RNCP.
+                  A partir de la troisième année, les apprenants peuvent choisir de poursuivre leur formation en initial ou en alternance.
+              </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light btn-xl js-scroll-trigger" data-dismiss="modal">Close</button>
+                <a class="btn btn-light btn-xl js-scroll-trigger" target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/">Postuler !</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--**************************************************************** End Modal resultat 2 **************************************************************** -->
+
+        <!--**************************************************************** start Modal resultat 3 **************************************************************** -->
+        <div class="modal fade" id="resultat3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="resultat">cela peut vous intéresser</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="modal1" class="modal-body">
+                <a target="_blank" href="http://www.epsi.fr/programmes/ingenierie-informatique/"> <p> * INGÉNIERIE INFORMATIQUE – BAC +5</p> </a>
+                <p>Le BTS Services Informatiques aux Organisations – BTS SIO est proposé aux titulaires d’un baccalauréat technologique STG et STI, d’un baccalauréat général (S, ES) ou d’un baccalauréat professionnel (SEN).
+                Le BTS Services Informatiques aux Organisations est un diplôme d’État de niveau Bac+2 qui peut se préparer à l’EPSI tout en suivant la formation bachelor Informatique directement après le Bac. Le BTS SIO permet de développer des connaissances théoriques et techniques dans le domaine des Services Informatiques aux organisations.</p>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light btn-xl js-scroll-trigger" data-dismiss="modal">Close</button>
+                <a class="btn btn-light btn-xl js-scroll-trigger" target="_blank" href="http://www.epsi.fr/programmes/ingenierie-informatique/">Postuler !</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--**************************************************************** End Modal resultat 3 **************************************************************** -->
+
+
+        <!--**************************************************************** start Modal General **************************************************************** -->
+        <div class="modal fade" id="general" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="resultat">Il n'y a aucun résultat pour cette recherche</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="modal1" class="modal-body">
+                <a target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/">
+                  <p >aller vers le site de L'epsi</p>
+                </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light btn-xl js-scroll-trigger" data-dismiss="modal">Close</button>
+                <a class="btn btn-light btn-xl js-scroll-trigger" target="_blank" href="http://www.epsi.fr/programmes/bts-sio-services-informatiques-aux-organisations/">Faire un tour à l'epsi !</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--**************************************************************** End Modal General **************************************************************** -->
+
+
+
+      <!-- ***************************************************************** start game modal *********************************************************** -->
         <div class="modal fade" id="ModalJeu" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -201,8 +289,10 @@
             </div>
           </div>
         </div>
+        <!--**************************************************************** End game modal **************************************************************** -->
 
-                      <!--********************************************************* Modal Incubateur *********************************************************-->
+
+          <!--********************************************************* start Modal Incubateur *********************************************************-->
               <div class="modal fade" id="Incubateur" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -221,9 +311,11 @@
                   </div>
                 </div>
               </div>
+              <!--********************************************************* End Modal Incubateur *********************************************************-->
 
 
-              <!--********************************************************* Modal salle *********************************************************-->
+
+              <!--********************************************************* start Modal salle *********************************************************-->
               <div class="modal fade" id="salle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -242,8 +334,10 @@
                   </div>
                 </div>
               </div>
+              <!--********************************************************* End Modal salle *********************************************************-->
 
-              <!--********************************************************* Modal entrée *********************************************************-->
+
+              <!--********************************************************* start Modal entrée *********************************************************-->
               <div class="modal fade" id="entrée" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -262,8 +356,10 @@
                   </div>
                 </div>
               </div>
+              <!--********************************************************* End Modal entrée *********************************************************-->
 
-              <!--********************************************************* Modal Acceuil *********************************************************-->
+
+              <!--********************************************************* start Modal Acceuil *********************************************************-->
               <div class="modal fade" id="acceuil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -282,8 +378,10 @@
                   </div>
                 </div>
               </div>
+              <!--********************************************************* End Modal Acceuil *********************************************************-->
 
-              <!--********************************************************* Modal cafette *********************************************************-->
+
+              <!--********************************************************* start Modal cafette *********************************************************-->
               <div class="modal fade" id="cafette" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -302,19 +400,21 @@
                   </div>
                 </div>
               </div>
+              <!--********************************************************* End Modal cafette *********************************************************-->
 
-              <!--********************************************************* Modal infoteque *********************************************************-->
+
+              <!--********************************************************* start Modal Infothèque *********************************************************-->
               <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Salle info technique</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Salle culturelle pluridisciplinaire</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                    <iframe id="ado-26011" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-26011").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/26011?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                    <iframe id="ado-26012" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-26012").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/26012?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
                      </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -322,12 +422,11 @@
                   </div>
                 </div>
               </div>
-
-
+              <!--********************************************************* End Modal Infothèque *********************************************************-->
       </div>
     </section>
 
-    <!-- ************************ section : #Activités (les evenement, ect...) ***************************** -->
+    <!-- ************************ start section : #Activités (les evenement, ect...) ***************************** -->
 
     <section class="p-0" id="portfolio">
       <div class="container-fluid p-0">
@@ -409,14 +508,14 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" data-toggle="modal" data-target="#info">
-              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/thumbnails/info.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
                     Salle info technique
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Salle culturelle pluridisciplinaire
                   </div>
                 </div>
               </div>
@@ -425,24 +524,19 @@
         </div>
       </div>
     </section>
-<!--
-    <section class="bg-dark text-white">
-      <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-      </div>
-    </section> -->
+    <!-- ************************ End section : #Activités (les evenement, ect...) ***************************** -->
 
-    <!-- ************************ section : #jeu (dedier a l'affichage du jeu) ***************************** -->
 
+    <!-- ************************* Start EPSI google Street View *************************** -->
           <section id="contact">
           <div class="container">
             <div style="text-align:center;width:480px;">
-              <!-- ************************* EPSI google Street View *************************** -->
               <iframe src="https://www.google.com/maps/embed?pb=!4v1538556421596!6m8!1m7!1sF84JIx6Iaa2JJV9n-Ax0Dw!2m2!1d48.8873912251981!2d2.237668148062202!3f132.52881092499086!4f4.639594727250071!5f0.7820865974627469" width="900" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
           </div>
         </section>
+        <!-- ************************* end EPSI google Street View *************************** -->
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
