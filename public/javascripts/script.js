@@ -21,14 +21,20 @@
 //   });
 
 // ***************** afficher la modal du jeu au build *********************************
-$("#modal1").click(function() {
-    $("#GameModalButton").show();
-  });
+$('button').click(
+    function(){
+      console.log("click détécté !");
+    }
+);
+$('#skip').click(
+    function(){
+      $("#GameModalButton").show();
+    }
+);
+
   $( document ).ready(function() {
     $("#ModalJeu").modal('show');
     $("#GameModalButton").hide();
-
-
 
       // $("#GameModalButton").show();
   });

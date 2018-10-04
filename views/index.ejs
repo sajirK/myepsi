@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-          <img class="light-logo" src="../img/logo.svg" width="30" height="30" alt=""> MyEpsi
+          <img class="light-logo" src="../img/logo.png" width="50" height="50" alt=""> MyEpsi
        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
               <a class="nav-link js-scroll-trigger" href="#about">Découvrir le campus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">je suis un condidat</a>
+              <a class="nav-link js-scroll-trigger" href="#services">je suis un candidat</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">L'epsi en 360°</a>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">l'excellence depuis 1961</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">DÉCOUVRIR LE CAMPUS</a>
+            <a id="discoverBut" class="btn btn-primary btn-xl js-scroll-trigger" href="#about">DÉCOUVRIR LE CAMPUS</a>
           </div>
         </div>
       </div>
@@ -76,10 +76,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">EPSI, ÉCOLE D’INFORMATIQUE MULTI CAMPUS</h2>
+            <h2 class="section-heading text-white">HEP CAMPUS PARIS – LA DÉFENSE : UN CAMPUS AU CŒUR D’UN PÔLE D’EXCEPTION</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">L’EPSI est une école informatique multi campus, présente à Arras, Bordeaux, Brest, Grenoble, Lille, Lyon, Montpellier, Nantes et Paris. L’EPSI se positionne sur le segment des Ecoles d’ingénierie informatique post bac et sans prépa. Exigence, accompagnement dans l’effort, humanité et convivialité sont les forces de l’école informatique EPSI.
-                                        Découvrez nos formations informatiques qui sont aussi accessibles par la VAE.fake rolex</p>
+            <p class="text-faded mb-4">L’EPSI autrefois installé à Levallois-Perret (92), a rejoint depuis la rentrée 2018 le campus HEP au cœur de la Défense. Véritable centre économique à 20 minutes du centre de Paris, la Défense dispose également de nombreux services notamment une multitude d’entreprises installés permettant aux étudiants de préparer au mieux leur insertion dans le monde professionnel (stages, apprentissage…).
+                                          Le campus, fonctionnel et dynamique, permet sur une surface de 4500m2 d’accueillir 2000 étudiants sur 5 étages issus de 10 écoles (Ecole 3A, IDRAC Business School, IEFT, IFAG, ILERI, SUP’DE COM, EPSI, IGEFI, IHEDREA et OSS). L’établissement dispose d’amphithéâtres, d’espaces modulables à souhait, de salles toutes équipées ou encore de cafétérias et d’espaces détentes afin de mettre les étudiants dans des conditions de travail optimales.
+            </p>
             <a class="btn btn-light btn-xl js-scroll-trigger" target="_blank" href="http://www.epsi.fr/candidature-2/">Inscrivez-vous en ligne</a>
           </div>
         </div>
@@ -182,28 +183,145 @@
           </div>
         </div>
 
-
       <!-- ***************************************************************** game modal *********************************************************** -->
-        <div class="modal fade" id="ModalJeu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+        <div class="modal fade" id="ModalJeu" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">il faut gagner pour voir le site</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title">Il faut gagner pour decouvrire le site</h5>
               </div>
               <div id="modal1" class="modal-body">
               <p data-height="600" data-theme-id="dark" data-slug-hash="yoVZYN" data-default-tab="result" data-user="christhebarbarian" data-pen-title="Tic Tac Toe" class="codepen"></p>
-              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+              <script id="game" async src="https://static.codepen.io/assets/embed/ei.js"></script>
               </div>
               <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+                <button id="skip" type="button" class="btn btn-secondary" >Skip</button>
                 <button id="GameModalButton" type="button" class="btn btn-primary" data-dismiss="modal">Decouvrire le site !</button>
               </div>
             </div>
           </div>
         </div>
+
+                      <!--********************************************************* Modal Incubateur *********************************************************-->
+              <div class="modal fade" id="Incubateur" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Salle dynamique et modulable à souhait</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <iframe id="ado-25996" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-25996").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/25996?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!--********************************************************* Modal salle *********************************************************-->
+              <div class="modal fade" id="salle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Salle classique de cours</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <iframe id="ado-25998" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-25998").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/25998?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--********************************************************* Modal entrée *********************************************************-->
+              <div class="modal fade" id="entrée" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Le campus HEP accueille 10 écoles</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <iframe id="ado-25999" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-25999").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/25999?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--********************************************************* Modal Acceuil *********************************************************-->
+              <div class="modal fade" id="acceuil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Le hall d’accueil du campus HEP</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <iframe id="ado-26001" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-26001").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/26001?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--********************************************************* Modal cafette *********************************************************-->
+              <div class="modal fade" id="cafette" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Salle cafétéria avec machines et un espace étente</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <iframe id="ado-26003" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-26003").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/26003?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--********************************************************* Modal infoteque *********************************************************-->
+              <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Salle info technique</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <iframe id="ado-26011" src="about:blank" frameborder="0" width="480" height="356" webkitAllowFullScreen="1" mozallowfullscreen="1" allowFullScreen="1"></iframe><script type="text/javascript">document.getElementById("ado-26011").setAttribute("src", "//www.vroptimal-3dx-assets.com/content/26011?player=true&autoplay=true&referer=" + encodeURIComponent(window.location.href));</script><script type="text/javascript" src="//remote.vroptimal-3dx-assets.com/scripts/vroptimal.js"></script>
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
       </div>
@@ -213,89 +331,89 @@
 
     <section class="p-0" id="portfolio">
       <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
+        <div class="row no-gutters ">
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+            <a class="portfolio-box" data-toggle="modal" data-target="#Incubateur">
+              <img class="img-fluid" src="img/portfolio/thumbnails/incub.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Incubateur
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Salle dynamique et modulable à souhait
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
+            <a class="portfolio-box" data-toggle="modal" data-target="#salle">
+              <img class="img-fluid" src="img/portfolio/thumbnails/salle.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Salle de cours
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Salle classique de cours
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
+            <a class="portfolio-box" data-toggle="modal" data-target="#entrée">
+              <img class="img-fluid" src="img/portfolio/thumbnails/fac1.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    L'Entrée du campus
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Le campus HEP accueille 10 écoles
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
+            <a class="portfolio-box" data-toggle="modal" data-target="#acceuil">
+              <img class="img-fluid" src="img/portfolio/thumbnails/acceuil.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    L'Acceuil
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Le hall d’accueil du campus HEP
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
+            <a class="portfolio-box" data-toggle="modal" data-target="#cafette">
+              <img class="img-fluid" src="img/portfolio/thumbnails/caf.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                  la cafétéria
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Salle cafétéria avec machines et un espace détente
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
+            <a class="portfolio-box" data-toggle="modal" data-target="#info">
               <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Salle info technique
                   </div>
                   <div class="project-name">
                     Project Name
@@ -321,7 +439,7 @@
           <div class="container">
             <div style="text-align:center;width:480px;">
               <!-- ************************* EPSI google Street View *************************** -->
-<iframe src="https://www.google.com/maps/embed?pb=!4v1538556421596!6m8!1m7!1sF84JIx6Iaa2JJV9n-Ax0Dw!2m2!1d48.8873912251981!2d2.237668148062202!3f132.52881092499086!4f4.639594727250071!5f0.7820865974627469" width="900" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!4v1538556421596!6m8!1m7!1sF84JIx6Iaa2JJV9n-Ax0Dw!2m2!1d48.8873912251981!2d2.237668148062202!3f132.52881092499086!4f4.639594727250071!5f0.7820865974627469" width="900" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
           </div>
         </section>
